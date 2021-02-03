@@ -21,6 +21,11 @@ button {
   color: white;
   font-size: 1.8rem;
   cursor: pointer;
+  transition: background 0.5s ease-in-out;
+}
+
+button:hover {
+  background: #25364b;
 }
 
 h1 {
@@ -101,6 +106,64 @@ nav ul {
   padding: 5rem;
 }
 
+/* Tools Section */
+
+#tools {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 1), transparent), url(/img/city.png);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  color: whitesmoke;
+  position: relative;
+  overflow: hidden;
+}
+.tools-head {
+  width: 90%;
+  filter: opacity(90%);
+  margin: auto;
+}
+.tools-head h2 {
+  padding: 1rem 0rem;
+  text-decoration: underline;
+  text-decoration-thickness: 0.5rem;
+}
+.tools-head h3 {
+  padding: 4rem 0rem;
+  background: linear-gradient(#ffffff, #a5f5da);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cloud {
+  position: absolute;
+  pointer-events: none;
+  bottom: 40%;
+  right: 0%;
+}
+.moving-cloud-1 {
+  animation: cloudanimation 5s infinite alternate ease-in-out;
+}
+.moving-cloud-2 {
+  bottom: 1%;
+  right: 0%;
+  z-index: -1;
+  opacity: 0.5;
+  animation: cloudanimation 7s infinite alternate ease-in-out;
+}
+
+@keyframes cloudanimation {
+  from {
+    transform: translate(3%, -3%);
+  }
+  to {
+    transform: translate(0%, 0%);
+  }
+}
+
+/* Media Query */
+
 @media screen and (max-width: 932px) {
   html {
     font-size: 45%;
@@ -110,5 +173,19 @@ nav ul {
   }
   #logo {
     padding: 1rem;
+  }
+  .cloud {
+    bottom: -150%;
+    left: -50%;
+  }
+  .moving-cloud-1 {
+    z-index: -1;
+  }
+  .moving-cloud-2 {
+    z-index: -2;
+  }
+  .tools-head h3 {
+    background: rgb(19, 28, 39, 0.9);
+    -webkit-text-fill-color: white;
   }
 }
